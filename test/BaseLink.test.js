@@ -171,4 +171,12 @@ describe('<BaseLink>', () => {
       expect(link.find(CustomComponent).prop('active')).toBe(false);
     });
   });
+
+  it('passes target prop down to underlying component', () => {
+    const link = mount(
+      <BaseLink to="/" match={{}} router={router} target="_blank" />,
+    );
+
+    expect(link.find('a').prop('target')).toBe('_blank');
+  });
 });

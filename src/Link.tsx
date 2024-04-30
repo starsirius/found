@@ -18,7 +18,6 @@ const Link = forwardRef(
       router: propsRouter,
       exact = false,
       onClick,
-      target,
       children,
       ...props
     }: any,
@@ -38,6 +37,7 @@ const Link = forwardRef(
       // Otherwise, let the browser handle the link with the computed href if the
       // event wasn't an unmodified left click, or if the link has a target other
       // than _self.
+      const { target } = props;
       if (
         event.defaultPrevented ||
         event.metaKey ||
